@@ -6,9 +6,9 @@ import subprocess
 def handle_client(client_socket):
     request = client_socket.recv(1024)
     print(f"Received: {request}")
-    client_socket.send(b"HTTP/1.1 101 Switching Protocols\\r\\n"
-                       b"Upgrade: websocket\\r\\n"
-                       b"Connection: Upgrade\\r\\n\\r\\n")
+    client_socket.send(b"HTTP/1.1 101 Switching Protocols\r\n"
+                       b"Upgrade: websocket\r\n"
+                       b"Connection: Upgrade\r\n\r\n")
     while True:
         data = client_socket.recv(1024)
         if not data:
@@ -33,3 +33,4 @@ if __name__ == "__main__":
     host = "0.0.0.0"  # bind ke semua IP
     port = 8080  # port yang digunakan
     start_server(host, port)
+    
