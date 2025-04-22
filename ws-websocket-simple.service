@@ -1,0 +1,12 @@
+[Unit]
+Description=Simple WebSocket Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /etc/websocket/ws_simple.py
+WorkingDirectory=/etc/websocket
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
